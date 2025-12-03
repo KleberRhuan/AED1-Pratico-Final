@@ -1,0 +1,13 @@
+# Build artifacts
+*.o
+main
+hotel
+
+# Local data snapshots
+*.dat
+
+# Editor/OS files
+.idea/
+~$*
+*.swp
+*.tmp
