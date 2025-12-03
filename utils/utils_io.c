@@ -1,7 +1,14 @@
 #include "utils_io.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+
+static void limpar_buffer_ate_fim_de_linha(void)
+{
+    int ch;
+    while ((ch = getchar()) != '\n' && ch != EOF)
+    {
+    }
+}
 
 void ler_linha(char *destino, int tamanho)
 {
@@ -21,14 +28,22 @@ void ler_linha(char *destino, int tamanho)
 
 int ler_inteiro()
 {
-    char buffer[32];
-    ler_linha(buffer, sizeof(buffer));
-    return atoi(buffer);
+    int valor = 0;
+    if (scanf("%d", &valor) != 1)
+    {
+        valor = 0;
+    }
+    limpar_buffer_ate_fim_de_linha();
+    return valor;
 }
 
 float ler_float()
 {
-    char buffer[32];
-    ler_linha(buffer, sizeof(buffer));
-    return (float)atof(buffer);
+    float valor = 0.0f;
+    if (scanf("%f", &valor) != 1)
+    {
+        valor = 0.0f;
+    }
+    limpar_buffer_ate_fim_de_linha();
+    return valor;
 }
